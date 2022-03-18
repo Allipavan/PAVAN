@@ -1,5 +1,6 @@
 pipeline {
-    agent any{
+    agent any
+    {
         docker { image 'golang:1.14' }
     }
     environment {
