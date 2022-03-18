@@ -28,15 +28,16 @@ pipeline {
                 VERSION_MAJOR = '0'
                 VERSION_MINOR = '1'
                 VERSION_PATCH = "${env.BUILD_NUMBER.toInteger() - BUILD_NUMBER_BASE.toInteger()}"
-            }
-            steps {
-                script {
-                    docker.withRegistry('', 'docker-hub') {
-                        def customImage = docker.build("allipavan/hello-jenkins:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH")
-                        customImage.push()
-                    }
-                }
-            }
-        }
-    }
-}
+             }
+             steps {
+                 script {
+                     docker.withRegistry('', 'docker-hub') {
+                         def customImage = docker.build("allipavan/hello-jenkins:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH")
+                         customImage.push()
+                      }
+                  }
+              }
+          }
+      }
+  }
+    }           
