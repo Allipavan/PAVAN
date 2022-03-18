@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', 'docker-hub') {
-                        def customImage = docker.build("Allipavan/hello-jenkins:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH")
+                        def customImage = docker.build("allipavan/hello-jenkins:$VERSION_MAJOR.$VERSION_MINOR.$VERSION_PATCH")
                         customImage.push()
                     }
                 }
